@@ -3,9 +3,11 @@ const { UsuarioAdmin } = require('./UsuarioAdmin.js')
 exports.usuarioCreacionController = usuario => {
   const usuarioadmin = new UsuarioAdmin
 
-  return usuarioadmin.enviarEmailBienvenida(usuario.displayName, usuario.email)
+  return usuarioadmin
+  .enviarEmailBienvenida(usuario.displayName, usuario.email)
   .then(()=>{
-    return usuarioadmin.registrarEmailsUsuario(usuario.displayName, usuario.email)
+    return usuarioadmin
+    .registrarEmailsUsuario(usuario.displayName, usuario.email)
   })
   .catch(error => {
     console.error(`error en la creacion de usuario ${error}`)
